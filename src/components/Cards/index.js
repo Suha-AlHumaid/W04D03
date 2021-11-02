@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router";
+import {AiOutlineLike} from "react-icons/ai"
 import "./style.css";
 
 
@@ -11,24 +12,28 @@ const Cards = () => {
       name: "Heart",
       img: "./heart.jpg",
       disc: "Heart Card",
+      isLike: false,
     },
     {
       id: "1",
       name: "Club",
       img: "./club.png",
       disc: "Club Card",
+      isLike: true,
     },
     {
       id: "2",
       name: "Spade",
       img: "./spade.png",
       disc: "Spade Card",
+      isLike: false,
     },
     {
       id: "3",
       name: "Diamond",
       img: "./diamond.png",
       disc: "Diamond Card",
+      isLike: false,
     },
   ]);
 
@@ -43,7 +48,10 @@ const Cards = () => {
     history.push(`/Search/${e.target.search.value}`);
   }
 
-
+const likeFunc=(elem)=>{
+    elem.isLike = !elem.isLike
+    console.log(arr);
+}
 
   
 
@@ -53,12 +61,18 @@ const Cards = () => {
             <input  type="text"  name="search" placeholder="Search... "/>
             <button>Search</button>
         </form>
+        <div className="cards">
       {arr.map((elem) => (
-        <div key={elem.id} onClick={()=>{gitPath(elem.id)}}>
-          <img src={require(`${elem.img}`).default} alt={`card ${elem.name}`} />
-          <h2> {elem.name} </h2>
+        <div key={elem.id} className="card" >
+          <img src={require(`${elem.img}`).default} alt={`card ${elem.name}`}   onClick={()=>{gitPath(elem.id)}}/>
+          <h2> {elem.name}  </h2>
+    
+          <AiOutlineLike id="icon" onClick={()=>{likeFunc(elem)}} className={elem.isLike ? `like` : `unlike`}/>
+          
+          
         </div>
       ))}
+      </div>
     </div>
   );
 };

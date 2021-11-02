@@ -1,0 +1,9 @@
+.nav:visited {
+color :gray;
+}
+.nav {
+    color: darkslategray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
