@@ -6,7 +6,7 @@ import "./style.css";
 
 
 const Cards = () => {
-  const [arr] = useState([
+  const [arr,setArr] = useState([
     {
       id: "0",
       name: "Heart",
@@ -48,10 +48,18 @@ const Cards = () => {
     history.push(`/Search/${e.target.search.value}`);
   }
 
-const likeFunc=(elem)=>{
-    elem.isLike = !elem.isLike
-    console.log(arr);
-}
+const likeFunc=(e,i)=>{
+ 
+//  elem.isLike = !elem.isLike
+ 
+    console.log('index: ' + i);
+    console.log(arr[i].isLike);
+    let newArr = [...arr]; // copying the old datas array
+    newArr[i].isLike = !arr[i].isLike; // replace e.target.value with whatever you want to change it to
+  
+    setArr(newArr);
+  }
+
 
   
 
@@ -62,12 +70,12 @@ const likeFunc=(elem)=>{
             <button>Search</button>
         </form>
         <div className="cards">
-      {arr.map((elem) => (
+      {arr.map((elem,i) => (
         <div key={elem.id} className="card" >
           <img src={require(`${elem.img}`).default} alt={`card ${elem.name}`}   onClick={()=>{gitPath(elem.id)}}/>
           <h2> {elem.name}  </h2>
     
-          <AiOutlineLike id="icon" onClick={()=>{likeFunc(elem)}} className={elem.isLike ? `like` : `unlike`}/>
+          <AiOutlineLike id="icon"  onClick={(e)=>{likeFunc(e,i)}} className={elem.isLike ? `like` : `unlike`}/>
           
           
         </div>
