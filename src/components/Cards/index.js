@@ -31,20 +31,34 @@ const Cards = () => {
       disc: "Diamond Card",
     },
   ]);
-  const history = useHistory()
-  const gitPath=(id)=>{
 
-    history.push(`/Card/${id}`);
+  const history = useHistory()
+
+  const gitPath=(id)=>{
+      history.push(`/Card/${id}`);
+    
+  } 
+  const searchPath=(e)=>{
+    //   console.log(e.target.search.value);
+    history.push(`/Search/${e.target.search.value}`);
   }
+
+
+
+  
+
   return (
     <div >
+   <form onSubmit={searchPath}>
+            <input  type="text"  name="search" placeholder="Search... "/>
+            <button>Search</button>
+        </form>
       {arr.map((elem) => (
         <div key={elem.id} onClick={()=>{gitPath(elem.id)}}>
           <img src={require(`${elem.img}`).default} alt={`card ${elem.name}`} />
           <h2> {elem.name} </h2>
         </div>
       ))}
-      {/* <Card /> */}
     </div>
   );
 };

@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 import Cards from "./components/Cards";
 import Card from "./components/Card";
 import About from "./components/About";
-
+import Search from "./components/Search"
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
         <Route exact path="/Cards" component={Cards} />
         <Route exact path="/Card/:id" component={Card} />
         <Route exact path="/About" component={About} />
-        {/* <Route exact path="/" component={} /> */}
+        <Route exact path="/Search/:name" component={Search} />
       </Switch>
 
     </>
