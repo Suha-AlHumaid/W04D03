@@ -39,7 +39,7 @@ const Cards = () => {
   return (
     <div >
       {arr.map((elem) => (
-        <div onClick={()=>{gitPath(elem.id)}}>
+        <div key={elem.id} onClick={()=>{gitPath(elem.id)}}>
           <img src={require(`${elem.img}`).default} alt={`card ${elem.name}`} />
           <h2> {elem.name} </h2>
         </div>
