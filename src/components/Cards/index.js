@@ -5,7 +5,7 @@ import "./style.css";
 
 
 const Cards = () => {
-  const [arr, setArr] = useState([
+  const [arr] = useState([
     {
       id: "0",
       name: "Heart",
