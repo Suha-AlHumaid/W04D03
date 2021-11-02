@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {AiFillLike} from "react-icons/ai"
 import "./style.css";
 const Nav = () => {
   return (
@@ -16,6 +17,9 @@ const Nav = () => {
         </li>
         <li>
           <Link to="/Cards">Cards</Link>
+        </li>
+        <li>
+          <Link to="/Favorite"><AiFillLike className="icon"/> </Link>
         </li>
       </ul>
     </div>
